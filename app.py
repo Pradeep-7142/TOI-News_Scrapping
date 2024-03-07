@@ -46,10 +46,10 @@ def get_google_oauth_token():
 
 # Database Configuration
 db_config = {
-    'dbname': 'dhp2024',
-    'user': 'postgres',
-    'password': 'pradeep',
-    'host': 'localhost',
+    'dbname': 'my_database_0gza',
+    'user': 'my_database_0gza_user',
+    'password': 's9qVRJarMky5udtlGJpJDYkQ2jvQj1qs',
+    'host': 'dpg-cniativ79t8c73br4tmg-a',
     'port': '5432'
 }
 
@@ -316,5 +316,5 @@ def stored_data():
 
     return redirect(url_for('password'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
