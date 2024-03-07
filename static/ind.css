@@ -1,0 +1,99 @@
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    margin-top: 50px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.app-name {
+    color: #28a745;
+}
+
+.news-source {
+    color: #007bff;
+}
+
+.alert-danger {
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+#url-input {
+    width: 80%;
+}
+
+.btn-logout {
+    margin-top: 20px;
+}
+
+.analyse_data {
+    margin-top: 30px;
+}
+
+h2 {
+    color: #28a745;
+}
+
+.col-md-6 {
+    margin-top: 20px;
+}
+
+/* Add this style for the cleaned text box */
+.analyse_data p {
+    border: 2px solid #28a745;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+
+/* Add this style for the table in the right column */
+.table-bordered {
+    border: 2px solid #007bff;
+    margin-top: 20px;
+    background-color: #ffffff;
+}
+
+.table-bordered td {
+    border: 2px solid #007bff;
+}
+
+/* Add some spacing between table rows */
+.table-bordered tr {
+    margin-bottom: 10px;
+}
+
+.btn-success,
+.btn-primary,
+.btn-danger {
+    margin-top: 20px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-success:hover,
+.btn-primary:hover,
+.btn-danger:hover {
+    filter: brightness(90%);
+}

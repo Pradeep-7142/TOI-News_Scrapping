@@ -1,0 +1,93 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #2ecc71; /* Light green color for heading */
+}
+
+/* Updated CSS for the table */
+.table-container {
+    margin-top: 20px;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px double #3498db;
+    white-space: nowrap; /* Prevent text wrapping inside table cells */
+}
+
+.table th,
+.table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #ecf0f1;
+}
+
+.table tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Hover effect for better user experience */
+.table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .table th,
+    .table td {
+        padding: 8px;
+        display: block;
+        width: 100%; /* Make table cells stack on top of each other */
+        box-sizing: border-box;
+    }
+
+    .table th {
+        text-align: left;
+    }
+
+    .table tbody tr {
+        margin-bottom: 15px; /* Add spacing between rows */
+        display: block;
+        border: 1px solid #ddd;
+    }
+
+    .table tbody tr:nth-child(even),
+    .table tbody tr:nth-child(odd) {
+        background-color: #fff; /* Reset background color for odd and even rows */
+    }
+
+    .table-container {
+        overflow-x: hidden; /* Prevent horizontal scroll for small screens */
+    }
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+    background-color: #2980b9;
+}
