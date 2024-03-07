@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add Bootstrap CSS link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ind.css') }}">
+    <title>News Text Extractor</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="app-name">News Analyser</h1>
+        <!-- Add the new heading here -->
+        <h2 class="news-source">The Times Of India</h2>
+        <!-- Flash message for invalid URL -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <form method="post" action="{{ url_for('login') }}">
+            <label for="url-input">Enter News URL:</label>
+            <input type="url" id="url-input" name="url" required class="form-control">
+            <button type="submit" class="btn btn-success">Analyse</button>
+        </form>
+        <form action="{{ url_for('stored_data') }}" method="get" class="database-form">
+            <button type="submit" class="btn btn-primary">Retrieve Info from Database</button>
+        </form>
+        <!-- Check if the user is logged in and show logout button -->
+        {% if session.google_token %}
+            <a href="{{ url_for('logout') }}" class="btn btn-danger btn-logout">Logout</a>
+        {% endif %}
+    </div>
+    <div class="analyse_data">
+        {% if msg_dt %}
+            <h2>Detail Of News</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Cleaned Text</h3>
+                    <p>{{ msg_cl }}</p>
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered">
+                        <tr>
+                            <td>Date_time</td>
+                            <td>{{ msg_dt }}</td>
+                        </tr>
+                        <tr>
+                            <td>Url_entered</td>
+                            <td>{{ msg_ur }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sentiment_of_news</td>
+                            <td>{{ msg_se }}</td>
+                        </tr>
+                        <tr>
+                            <td>Sent_count</td>
+                            <td>{{ msg_sn }}</td>
+                        </tr>
+                        <tr>
+                            <td>Word_count</td>
+                            <td>{{ msg_wo }}</td>
+                        </tr>
+                        <tr>
+                            <td>Stop_count</td>
+                            <td>{{ msg_sp }}</td>
+                        </tr>
+                        <tr>
+                            <td>Ptag_dic</td>
+                            <td>{{ msg_cn }}</td>
+                        </tr>
+                        <tr>
+                            <td>Need_to_know</td>
+                            <td>{{ msg_di }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    
