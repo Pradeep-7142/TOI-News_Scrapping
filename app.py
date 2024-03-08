@@ -56,6 +56,31 @@ db_config = {
 def is_cms_url(url):
     return url.lower().endswith('.cms')
 
+def create_users_table():
+    try:
+        connection = psycopg2.connect(**db_config)
+        cursor = connection.cursor()
+
+        table_name = 'users'
+        create_table_query = f'''
+            CREATE TABLE IF NOT EXISTS {table_name} (
+                id SERIAL PRIMARY KEY,
+                name VARCHAR(255),
+                email VARCHAR(255) UNIQUE
+            )
+        '''
+        cursor.execute(create_table_query)
+        connection.commit()
+
+    except Exception as e:
+        print("Error creating 'users' table:", e)
+    finally:
+        if cursor:
+            cursor.close()
+        if connection:
+            connection.close()
+
+
 # Function to create the 'News_data' table if not exist
 def create_news_data_table():
     try:
@@ -107,6 +132,30 @@ def insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count
         if connection:
             connection.close()
 
+def get_all_users():
+    try:
+        connection = psycopg2.connect(**db_config)
+        cursor = connection.cursor()
+
+        table_name = 'users'
+        query = f"SELECT * FROM {table_name}"
+
+        cursor.execute(query)
+        data = cursor.fetchall()
+
+        return data
+
+    except Exception as e:
+        print("Error retrieving data from the 'users' table:", e)
+        return []
+
+    finally:
+        if cursor:
+            cursor.close()
+        if connection:
+            connection.close()
+
+
 def get_all_data_from_table():
     try:
         connection = psycopg2.connect(**db_config)
@@ -133,6 +182,7 @@ def get_all_data_from_table():
 # Route for entering the password
 @app.route("/password", methods=['GET', 'POST'])
 def password():
+    create_users_table()  # Ensure the 'users' table exists
     return render_template("password.html")
 url=None
 # Main Routes
@@ -165,6 +215,9 @@ def authorized():
     # Connect to the PostgreSQL database
     conn = psycopg2.connect(**db_config)
     cur = conn.cursor()
+
+    # Ensure the 'users' table exists
+    create_users_table()
 
     # Check if the user already exists in the database
     existing_user = None
@@ -308,13 +361,14 @@ def portal():
 def stored_data():
     if request.method == 'POST':
         if request.form['password'] == ADMIN_PASSWORD:
-            data = get_all_data_from_table()
-            return render_template("stored_data.html", data=data)
+            user_data = get_all_users()
+            news_data = get_all_data_from_table()
+            return render_template("stored_data.html", user_data=user_data, news_data=news_data)
         else:
             flash('Incorrect password!', 'error')
             return redirect(url_for('password'))
 
     return redirect(url_for('password'))
 
-# if __name__ == "__main__":
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=False)

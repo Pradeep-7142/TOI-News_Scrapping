@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stored Data</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='store.css') }}">
-    
 </head>
 <body>
-    <h1> History Of News Articles Analysed</h1>
+    <h1>History Of News Articles Analyzed</h1>
+
+    <!-- News Data Table -->
+    <h2>News Data</h2>
     <table border="2">
         <tr>
             <th>Sr_no</th>
@@ -20,25 +22,39 @@
             <th>Stop_count</th>
             <th>Ptag_dic</th>
             <th>Need_to_know</th>
-            
         </tr>
-        {% for row in data %}
-        <tr>
-            <td>{{ loop.index }}</td>
-            <td>{{ row[1] }}</td>
-            <td>{{ row[2] }}</td>
-            <td>{{ row[3] }}</td>
-            <td>{{ row[4] }}</td>
-            <td>{{ row[5] }}</td>
-            <td>{{ row[6] }}</td>
-            <td>{{ row[7] }}</td>
-            <td>{{ row[8] }}</td>
-            
-            
-            
-        </tr>
+        {% for row in news_data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+                <td>{{ row[8] }}</td>
+            </tr>
         {% endfor %}
     </table>
+
+    <!-- User Data Table -->
+    <h2>User Data</h2>
+    <table border="2">
+        <tr>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+        {% for user in user_data %}
+            <tr>
+                <td>{{ user[0] }}</td>
+                <td>{{ user[1] }}</td>
+                <td>{{ user[2] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
     <a href="{{ url_for('portal') }}" class="button">Go back to Home</a>
 </body>
 </html>
