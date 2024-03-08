@@ -49,7 +49,7 @@ db_config = {
     'dbname': 'my_database_0gza',
     'user': 'my_database_0gza_user',
     'password': 's9qVRJarMky5udtlGJpJDYkQ2jvQj1qs',
-    'host': 'postgres://my_database_0gza_user:s9qVRJarMky5udtlGJpJDYkQ2jvQj1qs@dpg-cniativ79t8c73br4tmg-a/my_database_0gza',
+    'host': 'oregon-postgres.render.com',
     'port': '5432'
 }
 
