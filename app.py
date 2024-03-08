@@ -10,6 +10,7 @@ from urllib.parse import quote
 import re
 from werkzeug.urls import url_quote, url_unquote, url_encode
 import nltk
+nltk.download('all')
 from nltk import sent_tokenize, word_tokenize, pos_tag
 from nltk.corpus import stopwords
 import json
@@ -379,4 +380,4 @@ def stored_data():
     return redirect(url_for('password'))
 
 if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=5000)
+    app.run(debug=True)
