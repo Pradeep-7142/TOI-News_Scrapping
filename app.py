@@ -2,6 +2,7 @@
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_oauthlib.client import OAuth
+from flask import abort
 import psycopg2
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
@@ -237,19 +238,21 @@ def logout():
 
 @app.route("/portal")
 def portal():
-    create_news_data_table()  # Ensure the 'News_data' table exists
+    try:
+        create_news_data_table()  # Ensure the 'News_data' table exists
 
-    date_time = ""
-    url_entered = ""
-    cleaned_text = ""
-    sentiment_of_news = ""
-    sent_count = ""
-    word_count = ""
-    stop_count = ""
-    post_json = ""
-    need_to_know = ""
-    url = session.get('url')
-    if is_cms_url(url):
+        date_time = ""
+        url_entered = ""
+        cleaned_text = ""
+        sentiment_of_news = ""
+        sent_count = ""
+        word_count = ""
+        stop_count = ""
+        post_json = ""
+        need_to_know = ""
+        url = session.get('url')
+
+        if is_cms_url(url):
             # Process the URL only if it ends with .cms
             date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             url_entered = url
@@ -304,7 +307,7 @@ def portal():
             names = extract_names(text_without_hindi)
             for i in names:
                 if len(i) >= 15:
-                    if not i in list_new:
+                    if i not in list_new:
                         list_new.append(i)
             need_to_know = list_new
 
@@ -349,12 +352,15 @@ def portal():
             insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know)
             print("Data inserted successfully!")
 
-    return render_template("index.html",
-                           msg_dt=date_time, msg_ur=url_entered, msg_cl=cleaned_text,
-                           msg_se=sentiment_of_news,
-                           msg_sn=sent_count, msg_wo=word_count,
-                           msg_sp=stop_count, msg_cn=post_json, msg_di=need_to_know)
+        return render_template("index.html",
+                               msg_dt=date_time, msg_ur=url_entered, msg_cl=cleaned_text,
+                               msg_se=sentiment_of_news,
+                               msg_sn=sent_count, msg_wo=word_count,
+                               msg_sp=stop_count, msg_cn=post_json, msg_di=need_to_know)
 
+    except Exception as e:
+        print("Error in /portal route:", e)
+        abort(500)  # Internal Server Error
 @app.route("/stored_data", methods=['GET', 'POST'])
 def stored_data():
     if request.method == 'POST':
