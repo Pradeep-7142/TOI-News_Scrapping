@@ -24,7 +24,7 @@ ADMIN_PASSWORD = 'jnv@pradeep'
 
 google_client_id = "13934746983-m0ic6is950tr9k15269sr0kuab2504ns.apps.googleusercontent.com"
 google_client_secret = "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"
-google_redirect_uri = "https://deploy-01-6ses.onrender.com/login/authorized"
+google_redirect_uri = "https://new-web-fwb3.onrender.com/login/authorized"
 
 oauth = OAuth(app)
 google = oauth.remote_app(
