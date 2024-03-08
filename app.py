@@ -250,8 +250,12 @@ def portal():
         stop_count = ""
         post_json = ""
         need_to_know = ""
-        url = session.get('url')
+        #url = session.get('url')
+        url = session.get('url', '')
 
+        if not url:
+            # Handle the case where 'url' is not present in the session
+            return render_template("index.html", error_message="URL not provided in session.")
         if is_cms_url(url):
             # Process the URL only if it ends with .cms
             date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
