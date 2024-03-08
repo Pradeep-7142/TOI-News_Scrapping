@@ -184,7 +184,7 @@ def get_all_data_from_table():
 def password():
     create_users_table()  # Ensure the 'users' table exists
     return render_template("password.html")
-url=None
+# url=None
 # Main Routes
 @app.route('/')
 def index():
@@ -195,10 +195,8 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    global url
-
     if request.method == 'POST':
-        url = request.form['url']
+        session['url'] = request.form['url']
         return google.authorize(callback=url_for('authorized', _external=True))
 
     return render_template('index.html')
@@ -250,7 +248,7 @@ def portal():
     stop_count = ""
     post_json = ""
     need_to_know = ""
-    # url = request.form["url"]
+    url = session.get('url')
     if is_cms_url(url):
             # Process the URL only if it ends with .cms
             date_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
