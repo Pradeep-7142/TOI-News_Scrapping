@@ -49,7 +49,7 @@ db_config = {
     'dbname': 'my_database_0gza',
     'user': 'my_database_0gza_user',
     'password': 's9qVRJarMky5udtlGJpJDYkQ2jvQj1qs',
-    'host': 'my-database.onrender.com',
+    'host': 'deploy-01-6ses.onrender.com',
     'port': '5432'
 }
 
