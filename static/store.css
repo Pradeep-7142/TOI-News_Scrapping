@@ -1,4 +1,4 @@
-/* Reset some default styles */
+/* Reset some default styles for better consistency */
 body, h1, h2, table {
     margin: 0;
     padding: 0;
@@ -7,66 +7,93 @@ body, h1, h2, table {
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #333;
 }
 
 h1, h2 {
-    margin-bottom: 20px;
-    color: #3498db;
+    color: #333;
 }
 
+/* Main container styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Table styling */
 table {
     width: 100%;
+    max-width: 100%;
     border-collapse: collapse;
-    margin-bottom: 30px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
-}
-
-/* Alternating row colors */
-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-/* Alternating column colors */
-table tr td:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Stylish borders */
-table th, table td {
     border: 1px solid #ddd;
 }
 
-/* Header row styles */
-table th {
-    background-color: #3498db;
+th {
+    background-color: #333;
     color: #fff;
+}
+
+/* Alternating row colors */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Responsive column widths for the first table */
+@media (min-width: 768px) {
+    td:nth-child(10),
+    th:nth-child(10) {
+        width: 50%;
+    }
+
+    td:nth-child(1),
+    td:nth-child(2),
+    td:nth-child(4),
+    td:nth-child(5),
+    td:nth-child(6),
+    td:nth-child(7),
+    td:nth-child(8),
+    td:nth-child(9),
+
+    th:nth-child(1),
+    th:nth-child(2),
+    th:nth-child(4),
+    th:nth-child(5),
+    th:nth-child(6),
+    th:nth-child(7),
+    th:nth-child(8),
+    th:nth-child(9),
+    th:nth-child(10) {
+        width: 5%;
+    }
+
+    td:nth-child(3),
+    
+    th:nth-child(3) {
+        width: 10%;
+    }
 }
 
 /* Button styling */
 .button {
-    display: inline-block;
-    padding: 15px 30px;
+    display: block;
+    width: 200px;
+    padding: 10px;
+    margin: 20px auto;
+    text-align: center;
     text-decoration: none;
     color: #fff;
-    background-color: #3498db;
+    background-color: #333;
+    border: 1px solid #333;
     border-radius: 5px;
-    transition: background-color 0.3s;
 }
 
 .button:hover {
-    background-color: #2980b9;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    table {
-        font-size: 14px;
-    }
+    background-color: #555;
+    border: 1px solid #555;
 }

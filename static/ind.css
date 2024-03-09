@@ -27,27 +27,14 @@ body {
     display: flex;
     flex-direction: column;
 }
-.row{
+
+.row {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Change to row for two-column layout */
 }
 
-.form-card {
-    width: 100%;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-}
-.col-md-6{
-    width: 100%;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-}
-.col-md-6{
-    width: 100%;
+.col-md-6 {
+    width: 100%; /* Full width for small screens, adjust as needed */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
