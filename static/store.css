@@ -1,126 +1,72 @@
-/* store.css */
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* Reset some default styles */
+body, h1, h2, table {
     margin: 0;
     padding: 0;
 }
 
-h1, h2 {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     color: #333;
-    text-align: center;
 }
 
-/* Common styles for tables */
-.table-container {
-    margin-top: 20px;
-    overflow-x: auto;
+h1, h2 {
+    margin-bottom: 20px;
+    color: #3498db;
 }
 
-/* News Data Table */
-.news-table {
+table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.news-table th, .news-table td {
-    border: 2px solid #dddddd;
-    padding: 8px;
+th, td {
+    padding: 15px;
     text-align: left;
 }
 
-.news-table th {
+/* Alternating row colors */
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Alternating column colors */
+table tr td:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-/* Customize the width for the Cleaned_text column */
-.news-table td:nth-child(10) {
-    width: 50%;
-}
-
-/* Make the rest of the columns flexible */
-.news-table td:not(:nth-child(10)) {
-    width: auto;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* User Data Table */
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 2px double #3498db;
-}
-
-.table th,
-.table td {
-    padding: 12px;
-    text-align: left;
+/* Stylish borders */
+table th, table td {
     border: 1px solid #ddd;
 }
 
-.table th {
-    background-color: #2ecc71;
-    color: #fff;
-}
-
-.table tr:nth-child(even) {
-    background-color: #ecf0f1;
-}
-
-.table tr:nth-child(odd) {
-    background-color: #fff;
-}
-
-/* Hover effect for better user experience */
-.table tbody tr:hover {
-    background-color: #f2f2f2;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    .news-table th, .news-table td {
-        padding: 8px;
-        display: block;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .news-table th {
-        text-align: left;
-    }
-
-    .news-table tbody tr {
-        margin-bottom: 15px;
-        display: block;
-        border: 1px solid #ddd;
-    }
-
-    .news-table tbody tr:nth-child(even),
-    .news-table tbody tr:nth-child(odd) {
-        background-color: #fff;
-    }
-
-    .table-container {
-        overflow-x: auto;
-    }
-}
-
-/* Button style */
-a.button {
-    display: inline-block;
-    padding: 10px 20px;
+/* Header row styles */
+table th {
     background-color: #3498db;
     color: #fff;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-a.button:hover {
+/* Button styling */
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
     background-color: #2980b9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
 }

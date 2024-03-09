@@ -13,7 +13,10 @@
     <h2>News Data</h2>
     <table border="2">
         <tr>
-            <th>Sr_no</th>
+            <th rowspan="3">Sr_no</th>
+            <th>Cleaned_text</th>
+        </tr>
+        <tr>
             <th>Date_time</th>
             <th>Url_entered</th>
             <th>Sentiment_of_news</th>
@@ -22,12 +25,14 @@
             <th>Stop_count</th>
             <th>Ptag_dic</th>
             <th>Need_to_know</th>
-            <th>Cleaned_text</th>
+            
         </tr>
         {% for row in news_data %}
             <tr>
                 <td>{{ loop.index }}</td>
-                <td>{{ row[1] }}</td>
+                <td colspan="8">{{ row[1] }}</td>
+            </tr>
+            <tr>
                 <td>{{ row[2] }}</td>
                 <td>{{ row[3] }}</td>
                 <td>{{ row[4] }}</td>
