@@ -22,7 +22,7 @@
             <th>Stop_count</th>
             <th>Ptag_dic</th>
             <th>Need_to_know</th>
-            <th>Cleaned_text</th>
+            {% comment %} <th>Cleaned_text</th> {% endcomment %}
         </tr>
         {% for row in news_data %}
             <tr>
@@ -35,8 +35,9 @@
                 <td>{{ row[6] }}</td>
                 <td>{{ row[7] }}</td>
                 <td>{{ row[8] }}</td>
-                <td>{{ row[9] }}</td>
+                {% comment %} <td>{{ row[9] }}</td> {% endcomment %}
             </tr>
+            <p><b>Cleaned_text:</b>{{ row[9] }}</p>
         {% endfor %}
     </table>
 
