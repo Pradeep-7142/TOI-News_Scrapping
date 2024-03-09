@@ -23,7 +23,24 @@ body {
     margin-top: 20px;
 }
 
-form {
+.form-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-card {
+    width: 40%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.form-card h2 {
+    color: #28a745;
+}
+
+.form-card form {
     margin-top: 20px;
 }
 
@@ -39,15 +56,6 @@ form {
     margin-top: 30px;
 }
 
-h2 {
-    color: #28a745;
-}
-
-.col-md-6 {
-    margin-top: 20px;
-}
-
-/* Add this style for the cleaned text box */
 .analyse_data p {
     border: 2px solid #28a745;
     padding: 10px;
@@ -55,7 +63,11 @@ h2 {
     background-color: #f8f9fa;
 }
 
-/* Add this style for the table in the right column */
+.table-container {
+    width: 60%;
+    margin-left: 20px;
+}
+
 .table-bordered {
     border: 2px solid #007bff;
     margin-top: 20px;
@@ -66,7 +78,6 @@ h2 {
     border: 2px solid #007bff;
 }
 
-/* Add some spacing between table rows */
 .table-bordered tr {
     margin-bottom: 10px;
 }
