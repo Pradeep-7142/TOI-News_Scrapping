@@ -4,6 +4,9 @@ body {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
     margin-top: 50px;
     background-color: #ffffff;
     padding: 20px;
@@ -11,8 +14,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.analyse_data {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
 .app-name {
-    color: #28a745;
+    color: #f8293a;
 }
 
 .news-source {
@@ -23,18 +32,8 @@ body {
     margin-top: 20px;
 }
 
-.form-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.row {
-    display: flex;
-    flex-direction: column; /* Change to row for two-column layout */
-}
-
 .col-md-6 {
-    width: 100%; /* Full width for small screens, adjust as needed */
+    width: 100%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -57,22 +56,6 @@ body {
     margin-top: 20px;
 }
 
-.analyse_data {
-    margin-top: 30px;
-}
-
-.analyse_data p {
-    border: 2px solid #28a745;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f8f9fa;
-}
-
-.table-container {
-    width: 100%;
-    margin-left: 20px;
-}
-
 .table-bordered {
     border: 2px solid #007bff;
     margin-top: 20px;
@@ -83,29 +66,24 @@ body {
     border: 2px solid #007bff;
 }
 
-.table-bordered tr {
-    margin-bottom: 10px;
-}
-
 .btn-success,
 .btn-primary,
 .btn-danger {
     margin-top: 20px;
+    border: none;
+    cursor: pointer;
 }
 
 .btn-success {
     background-color: #28a745;
-    border: none;
 }
 
 .btn-primary {
     background-color: #007bff;
-    border: none;
 }
 
 .btn-danger {
     background-color: #dc3545;
-    border: none;
 }
 
 .btn-success:hover,
