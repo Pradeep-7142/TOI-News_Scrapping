@@ -11,6 +11,7 @@
 
     <!-- News Data Table -->
     <h2>News Data</h2>
+    <div class="main">
         {% for row in news_data %}
             <b>Sr_no::{{ loop.index }}</b>
             <p><b>Date_time::</b>{{ row[1] }}</p>
@@ -23,6 +24,7 @@
             <p><b>Ptag_dic::</b>{{ row[7] }}</p>
             <p><b>Need_to_know::</b>{{ row[8] }}</p>
         {% endfor %}
+    </div>
    <!-- User Data Table -->
     <h2>User Data</h2>
     <table border="2">

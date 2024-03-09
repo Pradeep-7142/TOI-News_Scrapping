@@ -7,6 +7,11 @@ body {
 h1, h2 {
     color: #333;
 }
+.main{
+    border: 5px solid #b941c4; /* Add a 5px solid border around the body */
+    padding: 10px; 
+
+}
 
 table {
     width: 100%;
