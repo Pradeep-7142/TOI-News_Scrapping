@@ -19,6 +19,14 @@ body {
     flex-direction: column;
     max-width: 100%;
 }
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+h2 {
+    font-size: 2rem;
+    text-align: center;
+}
 
 .app-name {
     color: #f8293a;
@@ -39,6 +47,11 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
 }
+.col-md-6 {
+    
+    flex: 0 0 50%;
+    max-width: 100%;
+}
 
 .form-card h2 {
     color: #28a745;
@@ -46,10 +59,11 @@ body {
 
 .form-card form {
     margin-top: 20px;
+    
 }
 
 #url-input {
-    width: 80%;
+    width: 100%;
 }
 
 .btn-logout {

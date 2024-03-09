@@ -48,7 +48,7 @@ tr:nth-child(even) {
 @media (min-width: 768px) {
     td:nth-child(10),
     th:nth-child(10) {
-        width: 50%;
+        width: 60%;
     }
 
     td:nth-child(1),
@@ -67,15 +67,15 @@ tr:nth-child(even) {
     th:nth-child(6),
     th:nth-child(7),
     th:nth-child(8),
-    th:nth-child(9),
-    th:nth-child(10) {
-        width: 5%;
+    th:nth-child(9)
+     {
+        width: 4%;
     }
 
     td:nth-child(3),
     
     th:nth-child(3) {
-        width: 10%;
+        width: 8%;
     }
 }
 
