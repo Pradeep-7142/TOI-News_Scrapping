@@ -1,5 +1,5 @@
 body {
-    background-color: #a4bcd4;
+    background-color: #dfdcd8;
     font-family: 'Arial', sans-serif;
 }
 
@@ -36,15 +36,13 @@ h2 {
     color: #007bff;
 }
 .form-card{
-    background-color: cadetblue;
+    background-color: rgb(217, 226, 176);
 }
 
 .alert-danger {
     margin-top: 20px;
 }
-.h{
-    background-color: rgb(224, 205, 26);
-}
+
 
 .col-md-6 {
     width: 100%;
