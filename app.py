@@ -356,7 +356,7 @@ def portal():
 
             tagged_words = pos_tag(word_tokenize(cleaned_text))
 
-            insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know)
+            insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know,cleaned_text)
             print("Data inserted successfully!")
 
         return render_template("index.html",
