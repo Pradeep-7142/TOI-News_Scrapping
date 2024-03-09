@@ -100,8 +100,7 @@ def create_news_data_table():
                 word_count INTEGER,
                 stop_count INTEGER,
                 post_json JSON,
-                need_to_know TEXT,
-                cleaned_text VARCHAR
+                need_to_know TEXT
             )
         '''
         cursor.execute(create_table_query)
@@ -116,15 +115,15 @@ def create_news_data_table():
             connection.close()
 
 # Database Functions
-def insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know,cleaned_text):
+def insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know):
     try:
         connection = psycopg2.connect(**db_config)
         cursor = connection.cursor()
 
         table_name = 'News_data'
-        query = f"INSERT INTO {table_name} (date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know, cleaned_text) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+        query = f"INSERT INTO {table_name} (date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
 
-        cursor.execute(query, (date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know,cleaned_text))
+        cursor.execute(query, (date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know))
         connection.commit()
 
     except Exception as e:
