@@ -11,37 +11,19 @@
 
     <!-- News Data Table -->
     <h2>News Data</h2>
-    <table border="2">
-        <tr>
-            <th>Sr_no</th>
-            <th>Date_time</th>
-            <th>Url_entered</th>
-            <th>Sentiment_of_news</th>
-            <th>Sent_count</th>
-            <th>Word_count</th>
-            <th>Stop_count</th>
-            <th>Ptag_dic</th>
-            <th>Need_to_know</th>
-            {% comment %} <th>Cleaned_text</th> {% endcomment %}
-        </tr>
         {% for row in news_data %}
-            <tr>
-                <td>{{ loop.index }}</td>
-                <td>{{ row[1] }}</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
-                <td>{{ row[4] }}</td>
-                <td>{{ row[5] }}</td>
-                <td>{{ row[6] }}</td>
-                <td>{{ row[7] }}</td>
-                <td>{{ row[8] }}</td>
-                {% comment %} <td>{{ row[9] }}</td> {% endcomment %}
-            </tr>
-            <p><b>Cleaned_text:</b>{{ row[9] }}</p>
+            <b>Sr_no::{{ loop.index }}</b>
+            <p><b>Date_time::</b>{{ row[1] }}</p>
+            <p><b>Url_entered::</b>{{ row[2] }}</p>
+            <p><b>Cleaned_text::</b>{{ row[9] }}</p>
+            <p><b>Sentiment_of_news::</b>{{ row[3] }}</p>
+            <p><b>Sent_count::</b>{{ row[4] }}</p>
+            <p><b>Word_count::</b>{{ row[5] }}</p>
+            <p><b>Stop_count::</b>{{ row[6] }}</p>
+            <p><b>Ptag_dic::</b>{{ row[7] }}</p>
+            <p><b>Need_to_know::</b>{{ row[8] }}</p>
         {% endfor %}
-    </table>
-
-    <!-- User Data Table -->
+   <!-- User Data Table -->
     <h2>User Data</h2>
     <table border="2">
         <tr>
