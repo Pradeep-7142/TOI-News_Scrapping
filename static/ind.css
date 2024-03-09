@@ -25,11 +25,15 @@ body {
 
 .form-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+.row{
+    display: flex;
+    flex-direction: column;
 }
 
 .form-card {
-    width: 40%;
+    width: 100%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -64,7 +68,7 @@ body {
 }
 
 .table-container {
-    width: 60%;
+    width: 100%;
     margin-left: 20px;
 }
 
