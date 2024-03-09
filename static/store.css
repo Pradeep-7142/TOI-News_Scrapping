@@ -42,7 +42,7 @@ h1, h2 {
 
 /* Make the rest of the columns flexible */
 .news-table td:not(:nth-child(10)) {
-    width: 5%;
+    width: auto;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
