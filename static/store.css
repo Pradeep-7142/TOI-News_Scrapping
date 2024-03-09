@@ -1,99 +1,71 @@
-/* Reset some default styles for better consistency */
-body, h1, h2, table {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
+    margin: 20px;
 }
 
 h1, h2 {
     color: #333;
 }
 
-/* Main container styling */
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* Table styling */
 table {
     width: 100%;
-    max-width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 2px solid #333;
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     text-align: left;
-    border: 1px solid #ddd;
 }
 
 th {
-    background-color: #333;
-    color: #fff;
+    background-color: #4CAF50;
+    color: white;
 }
 
-/* Alternating row colors */
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f2f2f2;
 }
 
-/* Responsive column widths for the first table */
-@media (min-width: 768px) {
-    td:nth-child(10),
-    th:nth-child(10) {
-        width: 60%;
-    }
-
-    td:nth-child(1),
-    td:nth-child(2),
-    td:nth-child(4),
-    td:nth-child(5),
-    td:nth-child(6),
-    td:nth-child(7),
-    td:nth-child(8),
-    td:nth-child(9),
-
-    th:nth-child(1),
-    th:nth-child(2),
-    th:nth-child(4),
-    th:nth-child(5),
-    th:nth-child(6),
-    th:nth-child(7),
-    th:nth-child(8),
-    th:nth-child(9)
-     {
-        width: 4%;
-    }
-
-    td:nth-child(3),
-    
-    th:nth-child(3) {
-        width: 8%;
-    }
-}
-
-/* Button styling */
-.button {
-    display: block;
-    width: 200px;
-    padding: 10px;
-    margin: 20px auto;
-    text-align: center;
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
     text-decoration: none;
-    color: #fff;
-    background-color: #333;
-    border: 1px solid #333;
+    background-color: #4CAF50;
+    color: white;
     border-radius: 5px;
+    margin-top: 20px;
 }
 
-.button:hover {
-    background-color: #555;
-    border: 1px solid #555;
+@media screen and (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    th {
+        display: none;
+    }
+
+    td {
+        margin: 10px 0;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    td:before {
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #ffffff;
+    }
 }
