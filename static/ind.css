@@ -1,5 +1,5 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #a4bcd4;
     font-family: 'Arial', sans-serif;
 }
 
@@ -35,9 +35,15 @@ h2 {
 .news-source {
     color: #007bff;
 }
+.form-card{
+    background-color: cadetblue;
+}
 
 .alert-danger {
     margin-top: 20px;
+}
+.h{
+    background-color: rgb(224, 205, 26);
 }
 
 .col-md-6 {
