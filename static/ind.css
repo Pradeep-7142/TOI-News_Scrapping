@@ -1,5 +1,6 @@
 body {
-    background-color: #dfdcd8;
+    background: url('/static/pexels-photo-547115.webp') no-repeat;
+    background-size: cover;
     font-family: 'Arial', sans-serif;
 }
 
