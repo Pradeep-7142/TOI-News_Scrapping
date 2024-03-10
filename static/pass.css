@@ -60,7 +60,7 @@ img{
 .main{
     display: flex;
     flex-direction: row;
-    margin-left: 465px;
+    margin-left: 475px;
     align-items: center;
 }
 .card {
