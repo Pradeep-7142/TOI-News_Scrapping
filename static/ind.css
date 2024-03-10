@@ -1,5 +1,5 @@
 body {
-    background: url('/static/pradeep.jpg') no-repeat;
+    background: url('/static/kl.jpg') no-repeat;
     background-size: cover;
     font-family: 'Arial', sans-serif;
 }
@@ -37,7 +37,7 @@ h2 {
 }
 
 .news-source {
-    color: #007bff;
+    color: #ff7b00;
 }
 
 .alert-danger {
