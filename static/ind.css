@@ -109,3 +109,25 @@ h2 {
 .btn-danger:hover {
     filter: brightness(90%);
 }
+li{
+    font-size: 30px;
+    padding-top: 30px;
+}
+p{
+    font-size: 20px;
+    padding-top: 15px;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
+.card {
+    padding: 20px;
+    align-items: center;
+    margin: 20px;
+    width: 200px;
+    height: 254px;
+     background: rgb(221, 213, 213);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
