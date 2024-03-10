@@ -29,7 +29,7 @@
                     <button type="submit" class="btn btn-success">Analyse</button>
                 </form>
                 <form action="{{ url_for('stored_data') }}" method="get" class="database-form">
-                    <button type="submit" class="btn btn-primary">Retrieve Info from Database</button>
+                    <button type="submit" class="btn btn-primary">Admin Data</button>
                 </form>
                 <!-- Check if the user is logged in and show logout button -->
                 {% if session.google_token %}
@@ -39,7 +39,7 @@
         <!-- Right Table for Analyzed Data -->
         <div class="analyse_data">
             {% if msg_dt %}
-                <h2><b>Detail Of News<b/></h2>
+                <h2><b>Explore Your News<b/></h2>
                 <div class="col-md-6">
                     <h3>Cleaned Text</h3>
                     <p>{{ msg_cl }}</p>
