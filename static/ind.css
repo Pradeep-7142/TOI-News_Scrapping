@@ -110,17 +110,18 @@ h2 {
     filter: brightness(90%);
 }
 li{
-    font-size: 30px;
-    padding-top: 30px;
+    font-size: 18px;
+    padding-top: 15px;
 }
 p{
-    font-size: 20px;
-    padding-top: 15px;
+    font-size: 15px;
+    padding-top: 5px;
 }
 .main{
     display: flex;
     flex-direction: row;
     margin: 10px;
+    margin-left: 200px;
 }
 .card {
     padding: 20px;
