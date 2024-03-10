@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
+    background: url('/static/im1.jpg') no-repeat;
 }
 
 .password-container {
