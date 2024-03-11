@@ -1,5 +1,5 @@
 
-
+# Import useful libraries and extensions
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_oauthlib.client import OAuth
 from flask import abort
@@ -18,10 +18,13 @@ from textblob import TextBlob
 from datetime import datetime
 import string
 
+# Initilisation of the flask app and setting the privacy terms
 app = Flask(__name__)
 app.secret_key = '949ddniaki_auh8w8472989280'
 ADMIN_PASSWORD = 'jnv@pradeep'
 
+# Google authentication
+# Do not forgate to add these three credentials from your google console
 google_client_id = "13934746983-m0ic6is950tr9k15269sr0kuab2504ns.apps.googleusercontent.com"
 google_client_secret = "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"
 google_redirect_uri = "https://deploy-gn0p.onrender.com/login/authorized"
@@ -46,7 +49,7 @@ google = oauth.remote_app(
 def get_google_oauth_token():
     return session.get('google_token')
 
-# Database Configuration
+# Database Configuration and connecting with the render database
 db_config = {
     'dbname': 'my_database_0gza',
     'user': 'my_database_0gza_user',
@@ -55,9 +58,11 @@ db_config = {
     'port': '5432'
 }
 
+# Function to check is the url is ending with .cms to avoid raw urls of adds
 def is_cms_url(url):
     return url.lower().endswith('.cms')
 
+# Function to create table in the database if not exists to save user data
 def create_users_table():
     try:
         connection = psycopg2.connect(**db_config)
@@ -85,10 +90,10 @@ def create_users_table():
 
 # Function to create the 'News_data' table if not exist
 def create_news_data_table():
-    try:
+    try:  # to avoid the crash of the code
         connection = psycopg2.connect(**db_config)
         cursor = connection.cursor()
-
+        # lines to connect with the database
         table_name = 'News_data'
         create_table_query = f'''
             CREATE TABLE IF NOT EXISTS {table_name} (
@@ -116,7 +121,7 @@ def create_news_data_table():
         if connection:
             connection.close()
 
-# Database Functions
+# Function to insert the data into the table
 def insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know,cleaned_text ):
     try:
         connection = psycopg2.connect(**db_config)
@@ -136,6 +141,7 @@ def insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count
         if connection:
             connection.close()
 
+# Function to get all the data from the table 
 def get_all_users():
     try:
         connection = psycopg2.connect(**db_config)
@@ -159,7 +165,7 @@ def get_all_users():
         if connection:
             connection.close()
 
-
+# Function to get the data from another table
 def get_all_data_from_table():
     try:
         connection = psycopg2.connect(**db_config)
@@ -188,8 +194,8 @@ def get_all_data_from_table():
 def password():
     create_users_table()  # Ensure the 'users' table exists
     return render_template("password.html")
-# url=None
-# Main Routes
+
+# Main Routes for the first page of the website
 @app.route('/')
 def index():
     global url
@@ -197,6 +203,7 @@ def index():
         return redirect(url_for('login'))
     return render_template('index.html')
 
+# Route to initiate the login process
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -205,6 +212,7 @@ def login():
 
     return render_template('index.html')
 
+# Function to check if the user is authenticated
 @app.route('/login/authorized')
 def authorized():
     response = google.authorized_response()
@@ -234,11 +242,13 @@ def authorized():
 
     return redirect(url_for('portal'))
 
+# Route to logout the user
 @app.route('/logout')
 def logout():
     session.pop('google_token', None)
     return redirect(url_for('index'))
 
+# funtion to do all the cleanning and other function with the news text
 @app.route("/portal")
 def portal():
     try:
@@ -266,6 +276,8 @@ def portal():
             html = urlopen(url_entered).read().decode('utf8')
             soup = BeautifulSoup(html, 'html.parser')
             results = soup.find(id="app")
+
+            # classes used to get the text from the news article
             class_names = ['_s30J clearfix', 'sbFea', 'LErKb paywall', 'E8VGP', 'ULEYK', 'readmore_span', 'KB5o3', 'Normal',
                             'summary', 'synopsisit psgallery', "slideclass"]
             merged_text = ""
@@ -275,7 +287,7 @@ def portal():
                     merged_text += element.get_text()
             if merged_text:
                 text1 = merged_text
-
+            # Removes all hindi words from the news article
             def remove_hindi_words(text):
                 hindi_pattern = re.compile(u'[\u0900-\u097F]+')
                 text_without_hindi = hindi_pattern.sub('', text)
@@ -283,7 +295,7 @@ def portal():
 
             text = merged_text
             text_without_hindi = remove_hindi_words(text)
-
+            # To remove Non english letters or words from the text
             def clean_text(text):
                 cleaned_text = re.sub(r'[^{}{}.]'.format(string.ascii_letters, string.whitespace), '', text)
                 return cleaned_text
@@ -292,12 +304,12 @@ def portal():
 
             sentence = text2
             tagged_sent = pos_tag(sentence.split())
-
+            # To find the famous proper nouns for further exploration
             def extract_names(text):
                 person_pattern = r"(?P<name>[A-Z][a-z]+(?: [A-Z][a-z]+)*)\b"
                 place_pattern = r"(?P<name>[A-Z][a-z]+\s[A-Z][a-z]+)\b"
                 organization_pattern = r"(?P<name>[A-Z][a-z]+(?: [A-Z][a-z]+)*)\s(?:Group|Company|Organization|Institution)\b"
-
+                # selection of the words having some specific patteren
                 person_regex = re.compile(person_pattern)
                 place_regex = re.compile(place_pattern)
                 organization_regex = re.compile(organization_pattern)
@@ -317,10 +329,11 @@ def portal():
                     if i not in list_new:
                         list_new.append(i)
             need_to_know = list_new
-
+            # To remove some subscript from the text to get the correct word count
             cleaned_text = text2.lower()
             cleaned_text1 = re.sub(r'[^\w\s]|(\d+)(st|nd|rd|th)?\b', '', cleaned_text)
-
+            
+            # To calculate the sentiment of the text
             def analyze_sentiment(text):
                 blob = TextBlob(text)
                 sentiment_polarity = blob.sentiment.polarity
@@ -336,7 +349,8 @@ def portal():
 
             text_to_analyze = cleaned_text1
             sentiment_of_news = analyze_sentiment(text_to_analyze)
-
+            
+            # Initilisation of the tokenisation of the text
             sent_count = len(sent_tokenize(cleaned_text))
             word_list = word_tokenize(cleaned_text)
             punct = [".", ",", "?", "!"]
@@ -358,7 +372,7 @@ def portal():
 
             insert_data_into_table(date_time, url_entered, sentiment_of_news, sent_count, word_count, stop_count, post_json, need_to_know,cleaned_text)
             print("Data inserted successfully!")
-
+        # representing the data on the Index Page
         return render_template("index.html",
                                msg_dt=date_time, msg_ur=url_entered, msg_cl=cleaned_text,
                                msg_se=sentiment_of_news,
@@ -368,6 +382,8 @@ def portal():
     except Exception as e:
         print("Error in /portal route:", e)
         abort(500)  # Internal Server Error
+
+# To get the stored data of the user
 @app.route("/stored_data", methods=['GET', 'POST'])
 def stored_data():
     if request.method == 'POST':
@@ -378,7 +394,7 @@ def stored_data():
         else:
             flash('Incorrect password!', 'error')
             return redirect(url_for('password'))
-
+            # To get the admin data firstly verify yourself
     return redirect(url_for('password'))
 
 if __name__ == '__main__':
