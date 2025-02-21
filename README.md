@@ -1,49 +1,48 @@
-TOI-News_Scrapping :
+📰 TOI-News Scraping - Automated News Analysis
 
-This project is a web application that scrapes news articles from The Times of India (TOI) and provides a detailed text analysis of the articles. The analysis includes word count, sentence count, keyword extraction, and part-of-speech (POS) tagging. The application is built using Python for the backend, and HTML and CSS for the frontend.
+Welcome to TOI-News Scraping – a web application that scrapes news articles from The Times of India and performs in-depth text analysis! 📰📊
 
-Features :
+🌟 Features
 
-1. News Scraping: Automatically fetches the latest news articles from The Times of India.
+✅ News Scraping – Automatically fetches the latest articles from TOI.
+✅ Word Count – Displays the total number of words in an article.
+✅ Sentence Count – Shows the total number of sentences.
+✅ Keyword Extraction – Highlights the most important keywords.
+✅ POS Tagging – Identifies and counts various parts of speech (nouns, verbs, adjectives, etc.).
+✅ User-Friendly Interface – Simple and intuitive web UI to display analysis results.
 
-2. Text Analysis: Provides comprehensive analysis including:
+🛠️ Technologies Used
 
-3. Word Count: Total number of words in the article
+Backend: Python 🐍 (Flask for web scraping and text analysis)
 
-4. Sentence Count: Total number of sentences in the article.
+Frontend: HTML & CSS 🎨
 
-5. Keyword Extraction: Highlights the most important keywords in the text.
+🚀 How It Works?
 
-6. POS Tagging: Counts of various parts of speech such as nouns, verbs, adjectives, etc.
+1️⃣ Enter the URL of a news article from The Times of India.
+2️⃣ Click the "Analyze" button.
+3️⃣ View detailed analysis results on the webpage.
 
-7. User-Friendly Interface: A simple and intuitive web interface to display the analysis results.
+📂 Folder & File Structure
 
-Technologies Used :
+📁 Main Folder
 
-1. Python: For web scraping and text analysis
+📂 templates/ – Contains all HTML files.
 
-2. HTML/CSS: For the frontend interface.
+📂 static/ – Holds JS and CSS files.
 
-Scrape and Analyze:
+📄 app.py – Main Flask script handling scraping and logic.
 
-1. Enter the URL of a news article from The Times of India.
+📄 requirements.txt – Lists all required packages.
 
-2. Click the "Analyze" button.
-  
-3. View the analysis results on the webpage.
+📌 Future Enhancements
 
-Folder And Files :
+🔹 More Data Sources – Expand to multiple news websites.
+🔹 Advanced NLP Features – Improve keyword extraction and sentiment analysis.
+🔹 Performance Optimization – Faster scraping and analysis.
 
-1. Main_Folder_Name
+📧 Contact
 
-   templates ( have all HTML files)
+For any queries or suggestions, feel free to reach out at: mrindia555666@gmail.com
 
-   static    (have all JS and CSS file)
-
-   app.py    ( main file having Flask code, logic for scrapping)
-
-   requirements.txt  (have all the packages to be installed)
-
-Thank you for visiting my project.
-For any questions or suggestions, please contact mrindia555666@gmail.com
-   
+🎯 Stay informed, stay analytical!
