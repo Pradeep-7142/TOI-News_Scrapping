@@ -1,4 +1,4 @@
-📰 TOI-News Scraping - Automated News Analysis
+# 📰 TOI-News Scraping - Automated News Analysis
 
 Welcome to TOI-News Scraping – a web application that scrapes news articles from The Times of India and performs in-depth text analysis! 📰📊
 
